@@ -7,27 +7,39 @@
 
 // Global Variables
 const sections = document.getElementsByTagName("section");
-const navbarList = document.getElementById("navbar__list");
+const navbarList = document.querySelector("#navbar__list");
+console.log(navbarList);
 
-// Start Helper Functions
-
-
-// Begin Main Functions
-
-// build the nav
-const buildNavbar = (sections) => {
-    const navbarIDAndLinkNameArr = [];
-
+// build the nav-----------------------------------------------------
+function buildNavbar(sections) {
+    /*const navbarIDAndLinkNameArr = [];*/
+    console.log("line 15");
+    console.log(sections);
     for(let section of sections) {
         let sectionID = section.getAttribute("id");
+        console.log("sectionID: " + sectionID);
         let navLinkName = section.getAttribute("data-nav");
-        let navInfo = [sectionID, navLinkName];
+        console.log("navLinkName: " + navLinkName);
+        /*let navInfo = [sectionID, navLinkName];
         navbarIDAndLinkNameArr.push(navInfo);
-        console.log(navbarIDAndLinkNameArr);
+        console.log(navbarIDAndLinkNameArr);*/
+        const htmlLink = `<li><a href="#${sectionID}">${navLinkName}</a></li>`;
+        console.log("line27");
+        navbarList.insertAdjacentHTML("beforeend", htmlLink);
     }
 
-    return navbarIDAndLinkNameArr;
+    /*createNavLink(navbarIDAndLinkNameArr)*/
+    /*return navbarIDAndLinkNameArr;*/
 }
+
+/*const createNavLink = (navData) => {
+    for(data of navData) {
+        let 
+        const htmlLink = "<li><a href='"
+    }
+    const htmlLink = "<li>"
+}*/
+
 
 // Add class 'active' to section when near top of viewport
 
@@ -37,10 +49,8 @@ const buildNavbar = (sections) => {
 
 // MAIN EVENTS
 // Build menu 
-document.addEventListener("DOMContentLoaded", () => {
-    const navbarDataArr = buildNavbar(sections);
-    console.log("IN BUILD MENU");
-    console.log(navbarDataArr);
+document.addEventListener("DOMContentLoaded", function() {
+    buildNavbar(sections);
 
 // Scroll to section on link click
 
