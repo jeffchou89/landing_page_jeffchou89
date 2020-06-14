@@ -10,26 +10,22 @@ const sections = document.getElementsByTagName("section");
 const navbarList = document.querySelector("#navbar__list");
 console.log(navbarList);
 
+// helper functions
+
 // build the nav-----------------------------------------------------
 function buildNavbar(sections) {
-    /*const navbarIDAndLinkNameArr = [];*/
     console.log("line 15");
     console.log(sections);
     for(let section of sections) {
         let sectionID = section.getAttribute("id");
         console.log("sectionID: " + sectionID);
+
         let navLinkName = section.getAttribute("data-nav");
         console.log("navLinkName: " + navLinkName);
-        /*let navInfo = [sectionID, navLinkName];
-        navbarIDAndLinkNameArr.push(navInfo);
-        console.log(navbarIDAndLinkNameArr);*/
+
         const htmlLink = `<li><a href="#${sectionID}">${navLinkName}</a></li>`;
-        console.log("line27");
         navbarList.insertAdjacentHTML("beforeend", htmlLink);
     }
-
-    /*createNavLink(navbarIDAndLinkNameArr)*/
-    /*return navbarIDAndLinkNameArr;*/
 }
 
 /*const createNavLink = (navData) => {
