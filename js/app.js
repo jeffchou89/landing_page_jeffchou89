@@ -10,8 +10,6 @@ const sections = document.getElementsByTagName("section");
 const navbarList = document.querySelector("#navbar__list");
 console.log(navbarList);
 
-// helper functions
-
 // build the nav-----------------------------------------------------
 function buildNavbar(sections) {
     console.log("line 15");
@@ -28,15 +26,6 @@ function buildNavbar(sections) {
     }
 }
 
-/*const createNavLink = (navData) => {
-    for(data of navData) {
-        let 
-        const htmlLink = "<li><a href='"
-    }
-    const htmlLink = "<li>"
-}*/
-
-
 // Add class 'active' to section when near top of viewport
 
 
@@ -49,7 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
     buildNavbar(sections);
 
 // Scroll to section on link click
-
+    navbarList.addEventListener("click", function(e) {
+        if (e.target.nodeName === "A") {
+            // get clicked link
+            const sectionToView = e.target.getAttribute("href");
+            console.log(sectionToView);
+        }
+    })
 // Set sections as active
 
 });
