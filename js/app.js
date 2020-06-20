@@ -30,7 +30,11 @@ function buildNavbar(sections) {
 
 
 // Scroll to anchor ID using scrollTO event
-
+function smoothScrollTo(anchorID) {
+    document.querySelector(anchorID).scrollIntoView({
+        behavior: "smooth"
+    });
+}
 
 // MAIN EVENTS
 // Build menu 
@@ -43,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // get clicked link
             const sectionToView = e.target.getAttribute("href");
             console.log(sectionToView);
+
+            smoothScrollTo(sectionToView);
         }
     })
 // Set sections as active
