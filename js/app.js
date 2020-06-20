@@ -29,7 +29,7 @@ function buildNavbar(sections) {
 // Add class 'active' to section when near top of viewport
 
 
-// Scroll to anchor ID using scrollTO event
+// Smooth scroll to anchor ID
 function smoothScrollTo(anchorID) {
     document.querySelector(anchorID).scrollIntoView({
         behavior: "smooth"
@@ -41,16 +41,18 @@ function smoothScrollTo(anchorID) {
 document.addEventListener("DOMContentLoaded", function() {
     buildNavbar(sections);
 
-// Scroll to section on link click
+    // Scroll to section on link click
     navbarList.addEventListener("click", function(e) {
         if (e.target.nodeName === "A") {
+            //prevent default action
+            e.preventDefault();
             // get clicked link
             const sectionToView = e.target.getAttribute("href");
             console.log(sectionToView);
 
             smoothScrollTo(sectionToView);
         }
-    })
-// Set sections as active
-
+    }) ;
+    // Set sections as active
+    
 });
