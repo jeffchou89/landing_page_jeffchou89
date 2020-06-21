@@ -29,25 +29,28 @@ function buildNavbar(sections) {
 // Add class 'active' to section when near top of viewport
 function setSectionInViewActive(sections) {
     for (let section of sections) {
+        let sectionID = section.getAttribute("id");
+        console.log("LINE 33 SECTION ID: " + sectionID);
 
-
-        /**const getSections = document.querySelector(
-            `a[href="#${section.getAttribute("id")}"]`
-        );
-        console.log("SELECTED LINK:  " + getSections);
-        if (isInViewport(section)) {
-            section.classList.add("active");
-            getSections.classList.add("menu__link--active");
+        const currentSection = document.querySelector(
+            `a[href="#${sectionID}"]`
+          );
+        
+        if (isInViewport(currentSection)) {
+            console.log("HERE: LINE 35");
+            let currentSection = document.getElementById(sectionID);
+            currentSection.classList.add("active");
+            currentSection.classList.add("menu__link--active");
         } else {
-            section.classList.remove("active");
-            getSections.classList.remove("menu__link--active");
-        }**/
+            currentSection.classlist.remove("active");
+            currentSection.classList.remove("menu__link--active");
+        }
     }
 }
 
 // Check if section is in viewport
-function isInViewport(section) {
-    var bounding = section.getBoundingClientRect();
+function isInViewport(sectionID) {
+    const bounding = sectionID.getBoundingClientRect();
     return (
         bounding.top >= 0 &&
         bounding.left >= 0 &&
