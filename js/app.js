@@ -27,7 +27,34 @@ function buildNavbar(sections) {
 }
 
 // Add class 'active' to section when near top of viewport
+function setSectionInViewActive(sections) {
+    for (let section of sections) {
 
+
+        /**const getSections = document.querySelector(
+            `a[href="#${section.getAttribute("id")}"]`
+        );
+        console.log("SELECTED LINK:  " + getSections);
+        if (isInViewport(section)) {
+            section.classList.add("active");
+            getSections.classList.add("menu__link--active");
+        } else {
+            section.classList.remove("active");
+            getSections.classList.remove("menu__link--active");
+        }**/
+    }
+}
+
+// Check if section is in viewport
+function isInViewport(section) {
+    var bounding = section.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
 
 // Smooth scroll to anchor ID
 function smoothScrollTo(anchorID) {
@@ -53,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
             smoothScrollTo(sectionToView);
         }
     }) ;
+
     // Set sections as active
-    
+    //ADDED 6/20------------------------------
+    setSectionInViewActive(sections);
 });
