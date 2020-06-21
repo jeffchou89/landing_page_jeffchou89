@@ -28,8 +28,8 @@ function buildNavbar(sections) {
 
 // Add class 'active' to section when near top of viewport
 function setSectionInViewActive(sections) {
-    for (let section of sections) {
-        let sectionID = section.getAttribute("id");
+    for (const section of sections) {
+        const sectionID = section.getAttribute("id");
         console.log("LINE 33 SECTION ID: " + sectionID);
 
         const currentSection = document.querySelector(
@@ -82,9 +82,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
             smoothScrollTo(sectionToView);
         }
-    }) ;
+    });
 
     // Set sections as active
     //ADDED 6/20------------------------------
-    setSectionInViewActive(sections);
+    window.addEventListener("scroll", function() {
+        setSectionInViewActive(sections);
+    });
 });
