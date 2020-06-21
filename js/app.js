@@ -21,7 +21,7 @@ function buildNavbar(sections) {
         let navLinkName = section.getAttribute("data-nav");
         console.log("navLinkName: " + navLinkName);
 
-        const htmlLink = `<li><a href="#${sectionID}">${navLinkName}</a></li>`;
+        const htmlLink = `<li><a href="#${sectionID}" class="menu__link">${navLinkName}</a></li>`;
         navbarList.insertAdjacentHTML("beforeend", htmlLink);
     }
 }

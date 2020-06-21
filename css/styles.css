@@ -81,9 +81,6 @@ section {
 
 .navbar__menu li {
     display: inline-block;
-    /*my changes */
-    padding: 0em 2em;
-    
 }
 
 .navbar__menu .menu__link {
@@ -91,7 +88,7 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: rgb(255, 255, 255);
 }
 
 .navbar__menu .menu__link:hover {
