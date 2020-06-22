@@ -95,8 +95,8 @@ section {
 }
 
 /*-------ADD/REMOVE???---*/
-.navbar__menu .menu__link--active {
-    background: #333;
+.menu__link__active {
+    background: rgb(182, 14, 14)114, 52, 52);
     color: #fff;
 }
 /*-------------------------*/
